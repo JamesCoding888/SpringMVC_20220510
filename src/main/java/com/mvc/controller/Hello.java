@@ -173,8 +173,7 @@ public class Hello {
 //	public String getUser(@Valid User user) {
 	public String getUser(User user) {
 		return user.toString();
-	}
-	
+	}	
 	
 	@RequestMapping(value = "/{welcomeChinese}", method = RequestMethod.POST)
 	@ResponseBody()
