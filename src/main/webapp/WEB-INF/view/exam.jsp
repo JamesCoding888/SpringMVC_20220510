@@ -44,7 +44,7 @@
 						<form:textarea path="note"/>
 						<p />
 						<button type="submit" class="pure-button pure-button-primary">create</button>
-						<button type="reset" class="pure-button pure-button-primary">reset</button>
+						<button type="reset" class="pure-button pure-button-primary">reset</button>						
 					</fieldset>					
 				</form:form>			
 				<!-- 資料呈現 -->
@@ -63,11 +63,14 @@
 						<tr>
 							<td>${ e.id }</td>
 							<td>${ e.name }</td>
-							<td>${ e.slot }</td>
+							<td>${ e.slotToString }</td>																			
 							<td>${ e.pay }</td>
 							<td>${ e.note }</td> 
 						</tr>
-						</c:forEach>						
+						</c:forEach>	
+						<form:form>
+							
+						</form:form>					
 					</tbody>
 				</table>
 			</td> 		

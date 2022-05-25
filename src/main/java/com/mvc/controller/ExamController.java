@@ -1,5 +1,5 @@
 package com.mvc.controller;
-import java.util.List; 
+import java.util.List;  
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +15,7 @@ public class ExamController  {
 	@RequestMapping(value = {"/", "/index"})
 	public String index(Model model) {
 		ExamTest e = new ExamTest();
+		System.out.println(e);
 		/* Entity Bean 初始化 for 驗證前端 exam.jsp 的資料可被呈現在表單中
 		e.setId("101");
 		e.setName("809");
@@ -22,8 +23,8 @@ public class ExamController  {
 		e.setPay("true");
 		e.setNote("Thanks...");
 		*/
-		model.addAttribute("examTest", e); // 給表單使用
-		model.addAttribute("exams", exams); // 給資料呈現使用
+		model.addAttribute("examTest", e); // 給表單使用	
+		model.addAttribute("exams", exams); // 給資料呈現使用		
 		return "exam";  // return 的名稱必須跟前端的檔名一致，e,g, exam.jsp 
 	}
 	
