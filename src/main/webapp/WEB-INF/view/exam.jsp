@@ -56,6 +56,7 @@
 							<th>slot</th>
 							<th>pay</th>
 							<th>note</th>
+							<th>edit</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -63,14 +64,20 @@
 						<tr>
 							<td>${ e.id }</td>
 							<td>${ e.name }</td>
-							<td>${ e.slotToString }</td>																			
+							<td>
+								${ e.slotToString }								
+							</td>																			
 							<td>${ e.pay }</td>
-							<td>${ e.note }</td> 
+							<td>${ e.note }</td>
+							<td>
+								<button type="button" 
+										onclick="location.href='${ pageContext.request.contextPath }/mvc/exam/get/${ e.id }'"
+										class="pure-button pure-button-primary">
+									edit
+								</button>
+							</td> 
 						</tr>
-						</c:forEach>	
-						<form:form>
-							
-						</form:form>					
+						</c:forEach>										
 					</tbody>
 				</table>
 			</td> 		
@@ -78,3 +85,4 @@
 	</table>
 </body>
 </html>
+

@@ -11,47 +11,46 @@ public class ExamTest {
 	// 將 slot 陣列轉字串使用
 	// Ex: ${ e.slotToString }	
 	public String getSlotToString() {
+		System.out.println("slot: "+ slot);
 		return Arrays.toString(slot);
 	}
 	
 	public String getId() {
+//		System.out.println("id: "+ id);
 		return id;
 	}
-	public ExamTest() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 	public void setId(String id) {
-		this.id = id;
-		System.out.println(this.id);
+		this.id = id;	
+		System.out.println("set id");
 	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
-		System.out.println(this.name);
+		System.out.println("set name");
 	}
 	public String[] getSlot() {
 		return slot;
 	}
 	public void setSlot(String[] slot) {
 		this.slot = slot;
-		System.out.println("slot: " + this.slot);
+		System.out.println("set slot");
 	}
 	public String getPay() {
 		return pay;
 	}
 	public void setPay(String pay) {
 		this.pay = pay;
-		System.out.println(this.pay);
+		System.out.println("set pay");
 	}
 	public String getNote() {
 		return note;
 	}
 	public void setNote(String note) {
-		this.note = note;
-		System.out.println(this.note);
+		this.note = note;		
+		System.out.println("set note");
 	}
 	@Override
 	public int hashCode() {
