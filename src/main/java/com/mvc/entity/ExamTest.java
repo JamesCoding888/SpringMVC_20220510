@@ -1,19 +1,20 @@
 package com.mvc.entity;
-import java.util.Arrays;  
+import java.util.Arrays;   
 import java.util.Objects;
 public class ExamTest {
+	
 	private String id;
 	private String name;
 	private String[] slot;
 	private String pay;
 	private String note;
-	
+
 	// 將 slot 陣列轉字串使用
 	// Ex: ${ e.slotToString }	
-	public String getSlotToString() {
-		System.out.println("slot: "+ slot);
-		return Arrays.toString(slot);
-	}
+//	public String getSlotToString() {
+//		System.out.println("slot: "+ slot);
+//		return Arrays.toString(slot);
+//	}
 	
 	public String getId() {
 //		System.out.println("id: "+ id);
@@ -48,9 +49,9 @@ public class ExamTest {
 	public String getNote() {
 		return note;
 	}
-	public void setNote(String note) {
+	public void setNote(String note) {		
 		this.note = note;		
-		System.out.println("set note");
+		System.out.println("set note:" + note);
 	}
 	@Override
 	public int hashCode() {

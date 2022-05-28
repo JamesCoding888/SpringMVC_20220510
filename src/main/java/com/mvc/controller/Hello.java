@@ -20,7 +20,7 @@ public class Hello {
 	
 	
 	@RequestMapping(value = "/greet")
-	@ResponseBody()
+//	@ResponseBody()
 	public String greet() {
 		return "你好 Hello to Spring MVC";
 	}
