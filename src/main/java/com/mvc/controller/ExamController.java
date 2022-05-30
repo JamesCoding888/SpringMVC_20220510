@@ -1,5 +1,5 @@
 package com.mvc.controller;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.List; 
 import java.util.Map;
 import java.util.Optional;
@@ -12,12 +12,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.mvc.entity.ExamName;
+import com.mvc.entity.ExamPay;
+import com.mvc.entity.ExamSlot;
 import com.mvc.entity.ExamTest;
 import com.mvc.validator.ExamValidator;
 @Controller
 @RequestMapping("/exam")
 public class ExamController  {	
-
+	
 	// CopyOnWriteArrayList is MultipleThread-safe
 	private static List<ExamTest> exams = new CopyOnWriteArrayList<>();
 	
@@ -27,6 +29,19 @@ public class ExamController  {
 		examNames.add(new ExamName("809","1Z0-809"));
 		examNames.add(new ExamName("900","1Z0-900"));
 		examNames.add(new ExamName("819","1Z0-819"));
+	}
+	
+	private static List<ExamSlot> examSlots = new ArrayList<>();
+	static {
+		examSlots.add(new ExamSlot("A", "上午 (A)"));
+		examSlots.add(new ExamSlot("B", "中午 (B)"));
+		examSlots.add(new ExamSlot("C", "下午 (C)"));	
+	}
+	
+	private static List<ExamPay> examPays = new ArrayList<>();
+	static {
+		examPays.add(new ExamPay("pay", "已繳"));
+		examPays.add(new ExamPay("unpay", "未繳"));		
 	}
 	
 	@Autowired
@@ -46,6 +61,8 @@ public class ExamController  {
 		model.addAttribute("examTest", e); // 給表單使用	
 		model.addAttribute("exams", exams); // 給資料呈現使用
 		model.addAttribute("examNames", examNames); // 給資料呈現使用
+		model.addAttribute("examSlots", examSlots); // 給資料呈現使用
+		model.addAttribute("examPays", examPays); // 給資料呈現使用
 		model.addAttribute("action", "create");
 		// 統計資料				
 		model.addAttribute("stat1", getStat1());
@@ -63,6 +80,8 @@ public class ExamController  {
 		if(result.hasErrors()) {
 			model.addAttribute("exams", exams); // 給資料呈現使用
 			model.addAttribute("examNames", examNames); // 給資料呈現使用
+			model.addAttribute("examSlots", examSlots); // 給資料呈現使用
+			model.addAttribute("examPays", examPays); // 給資料呈現使用
 			model.addAttribute("action", "create");
 			// 統計資料				
 			model.addAttribute("stat1", getStat1());
@@ -80,6 +99,8 @@ public class ExamController  {
 		model.addAttribute("examTest", optExam.isPresent() ? optExam.get() : new ExamTest()); // 給表單使用
 		model.addAttribute("exams", exams); // 給資料呈現使用
 		model.addAttribute("examNames", examNames); // 給資料呈現使用
+		model.addAttribute("examSlots", examSlots); // 給資料呈現使用
+		model.addAttribute("examPays", examPays); // 給資料呈現使用
 		model.addAttribute("action", "update");
 		// 統計資料
 		model.addAttribute("stat1", getStat1());

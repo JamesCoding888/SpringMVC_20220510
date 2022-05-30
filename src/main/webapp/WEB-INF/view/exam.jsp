@@ -98,14 +98,11 @@
 						<form:errors path="name" cssClass="error" />
 						<p />							
 						考試時段 (可複選):
-						<form:checkbox path="slot" value="A" />上午 (A)
-						<form:checkbox path="slot" value="B" />中午 (B)
-						<form:checkbox path="slot" value="C" />下午 (C)
+						<form:checkboxes path="slot" items="${ examSlots }" itemValue="id" itemLabel="slot"></form:checkboxes>													
 						<form:errors path="slot" cssClass="error" />	
 						<p />
-						繳費狀況:
-						已繳 <form:radiobutton path="pay" value="true"/>
-						未繳 <form:radiobutton path="pay" value="false"/>
+						繳費狀況:						
+						<form:radiobuttons path="pay" items="${ examPays }" itemValue="id" itemLabel="pay"></form:radiobuttons>
 						<form:errors path="pay" cssClass="error" />	
 						<p />
 						備註:
@@ -177,4 +174,3 @@
 	</table>
 </body>
 </html>
-
