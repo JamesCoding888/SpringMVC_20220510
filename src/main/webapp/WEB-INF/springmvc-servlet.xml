@@ -11,11 +11,22 @@
 	<context:component-scan base-package="com.mvc.controller"></context:component-scan>
 	<context:component-scan base-package="com.mvc.validator"></context:component-scan>
 	
-	<!-- 設定 properties 位置 -->
+	<!-- 錯誤訊息設定 properties 位置 -->
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="/WEB-INF/resource/errorMessages" ></property>
+		<property name="useCodeAsDefaultMessage" value="false" ></property>
+		<property name="defaultEncoding" value="UTF-8" ></property>
 	</bean>
 	
+	<!-- JSR 303 Validator 驗證: Hibernate Validator 實作驗證配置 -->
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass"
+			value="org.hibernate.validator.HibernateValidator" />
+		<property name="validationMessageSource" ref="messageSource" />
+    </bean>
+    
+	<!-- 配置 view 渲染器位置 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		id="internalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
