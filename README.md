@@ -29,6 +29,17 @@
 - <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
 - ${pageContext.request.contextPath} 
 
+20210917
+- window.location.href 
+- location.href 
+- Google PIE Chart 
+- Validator 
+- Errors 
+- form:errors path="" 
+- form:checkboxes 
+- form:radiobuttons 
+- itemValue 
+- itemLabel
 
 
 
