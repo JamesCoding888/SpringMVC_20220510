@@ -1,5 +1,5 @@
 package com.mvc.service;
-import java.util.ArrayList; 
+import java.util.ArrayList;  
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +9,7 @@ import com.mvc.entity.products.Product;
 public interface ProductService {
 	// 商品分類
 	Map<Integer, Group> groups = new LinkedHashMap<>();
-	
+
 	// 商品列表(存放目前所有商品資料的資料庫集合)
 	List<Product> products = new ArrayList<Product>();
 	

@@ -1,5 +1,5 @@
 package com.mvc.service;
-import java.util.List;
+import java.util.List; 
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 import com.mvc.entity.products.Group;
@@ -34,7 +34,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public boolean save(Product product) {
 		products.add(product);
-		return false;
+		return true;
 	}
 
 	@Override
