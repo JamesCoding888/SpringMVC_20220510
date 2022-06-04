@@ -1,5 +1,5 @@
 package com.mvc.entity.products;
-import java.util.Date;  
+import java.util.Date;   
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -15,7 +15,7 @@ public class Product {
 	@NotNull(message = "請選擇商品分類")
 	private Group group; // 商品分類
 	
-	@NotBlank(message = "商品名稱不可是空值")
+//	@NotBlank(message = "商品名稱不可是空值")
 	@NotNull(message = "商品名稱不可是空值")
 	@Size(min= 3, max = 50, message = "商品名稱必須介於3~50字之間") // 係指 java 的 JSR303   
 //	@Length // 係指 hibernate-validator，功能與 @Size 一樣

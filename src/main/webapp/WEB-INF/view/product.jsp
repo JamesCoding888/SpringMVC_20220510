@@ -23,16 +23,24 @@
                             </form:select>
                             <p />
                             品名:
-                            <form:input path="name" placeholder="請輸入商品名稱" />                            
+                            <form:input path="name" placeholder="請輸入商品名稱" /> 
+                            <p />
+                            <form:errors path="name" cssClass="error" />                              	                        
                             <p />
                             價格:
                             <form:input path="price" placeholder="請輸入商品價格" />
                             <p />
+                            <form:errors path="price" cssClass="error" />                              	                        
+                            <p />
                             數量:
                             <form:input path="amount" placeholder="請輸入商品數量" />
                             <p />
+                            <form:errors path="amount" cssClass="error" />
+                            <p />
                             日期:
                             <form:input path="date" type="date" />
+                            <p />
+                            <form:errors path="date" cssClass="error" />
                             <p />
                             <button type="submit" 
                             		class="pure-button pure-button-primary">

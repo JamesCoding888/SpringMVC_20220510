@@ -1,5 +1,5 @@
 package com.mvc.service;
-import java.util.List; 
+import java.util.List;  
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 import com.mvc.entity.products.Group;
@@ -11,9 +11,9 @@ public class ProductServiceImpl implements ProductService{
 	{
 		if(groups.size() == 0) {
 			// 初始化方品分類資料
-			groups.put(1, new Group(11, "A"));
-			groups.put(2, new Group(21, "B"));
-			groups.put(3, new Group(31, "C"));		
+			groups.put(1, new Group(1, "A"));
+			groups.put(2, new Group(2, "B"));
+			groups.put(3, new Group(3, "C"));		
 		}
 	}
 	
@@ -33,6 +33,12 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public boolean save(Product product) {
+		// 1. 根據 group.gid 找到 group 物件
+		// 2. 將 group 物件存放到 product 中
+		System.out.println(product);
+		Group group = groups.get(product.getGroup().getGid());
+		product.setGroup(group);
+		System.out.println(product);
 		products.add(product);
 		return true;
 	}
