@@ -1,4 +1,5 @@
 package com.mvc.entity.products;
+import java.util.Arrays;  
 import java.util.Date;    
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -14,6 +15,14 @@ public class Product {
 	@NotBlank(message = "請選擇商品分類")
 	@NotNull(message = "請選擇商品分類")
 	private Group group; // 商品分類
+	
+	@NotBlank(message = "請選擇尺寸名稱")
+	@NotNull(message = "請選擇尺寸名稱")
+	private String size; // 尺寸名稱
+
+	@NotBlank(message = "請選擇級別")
+	@NotNull(message = "請選擇級別")
+	private Integer[] levelIds; // 級別 id (多筆)
 	
 //	@NotBlank(message = "商品名稱不可是空值")
 	@NotNull(message = "商品名稱不可是空值")
@@ -43,6 +52,22 @@ public class Product {
 
 	public void setGroup(Group group) {
 		this.group = group;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public Integer[] getLevelIds() {
+		return levelIds;
+	}
+
+	public void setLevelIds(Integer[] levelIds) {
+		this.levelIds = levelIds;
 	}
 
 	public String getName() {
@@ -79,10 +104,12 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [group=" + group + ", name=" + name + ", price=" + price + ", amount=" + amount + ", date="
-				+ date + "]";
+		return "Product [group=" + group + ", size=" + size + ", levelIds=" + Arrays.toString(levelIds) + ", name="
+				+ name + ", price=" + price + ", amount=" + amount + ", date=" + date + "]";
 	}
-	
-	
+
 	
 }
+
+
+

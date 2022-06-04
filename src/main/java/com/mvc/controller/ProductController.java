@@ -1,5 +1,5 @@
 package com.mvc.controller;
-import javax.validation.Valid; 
+import javax.validation.Valid;   
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import com.mvc.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/product")
-@SessionAttributes(value = {"groups", "products"})
+@SessionAttributes(value = {"groups", "products", "sizes", "levels"})
 public class ProductController {
 	
 	@Autowired
@@ -26,6 +26,8 @@ public class ProductController {
 		model.addAttribute("product", new Product());
 		model.addAttribute("groups", productService.groups.values());
 		model.addAttribute("products", productService.query());
+		model.addAttribute("sizes", productService.sizes.values());
+		model.addAttribute("levels", productService.levels.values());
 		model.addAttribute("action", "save");	
 		return "product";		
 	}
@@ -71,4 +73,9 @@ public class ProductController {
 		return "redirect:/mvc/product/";
 	}
 	
+	@GetMapping("/delete/{name}")
+	public String delete(@PathVariable("name") String name) {
+		productService.delete(name);
+		return "redirect:/mvc/product/";
+	}
 } 

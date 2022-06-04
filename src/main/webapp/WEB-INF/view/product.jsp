@@ -22,6 +22,22 @@
                             			 itemValue="gid">
                             </form:select>
                             <p />
+                            尺寸:
+                            <form:radiobuttons path="size"
+                            				   items="${ sizes }"
+                            				   itemLabel="sname"
+                            				   itemValue="sname" 
+                            				   delimiter="|"                            				                                                           
+                            />                            
+                            <p />
+                            級別:
+                            <form:checkboxes path="levelIds"
+                            				 items="${ levels }"
+                            			     itemLabel="lname"
+                            			     itemValue="lid" 
+                            			     delimiter=" " 
+                         	/>                                                    	
+                            <p />
                             品名:
                             <form:input path="name" placeholder="請輸入商品名稱" readonly="${ action == 'update'?'true':'false'}"/>                            
                             <p />

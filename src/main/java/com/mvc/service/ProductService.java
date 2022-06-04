@@ -1,15 +1,24 @@
 package com.mvc.service;
-import java.util.ArrayList;  
+import java.util.ArrayList;     
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import com.mvc.entity.products.Group;
+import com.mvc.entity.products.Level;
 import com.mvc.entity.products.Product;
+import com.mvc.entity.products.Size;
 
 public interface ProductService {
 	// 商品分類
 	Map<Integer, Group> groups = new LinkedHashMap<>();
 
+
+	// 尺寸集合
+	Map<Integer, Size> sizes = new LinkedHashMap<>(); 
+	
+	// 級別集合
+	Map<Integer, Level> levels = new LinkedHashMap<>();
+		
 	// 商品列表(存放目前所有商品資料的資料庫集合)
 	List<Product> products = new ArrayList<Product>();
 	
