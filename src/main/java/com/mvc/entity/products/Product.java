@@ -1,6 +1,6 @@
 package com.mvc.entity.products;
-import java.util.Arrays;  
-import java.util.Date;    
+import java.util.Arrays;   
+import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Product {
 	@NotBlank(message = "請選擇商品分類")
@@ -43,6 +44,7 @@ public class Product {
 //	@PastOrPresent(message = "上架日期不可大於今日")
 	@Past(message = "上架日期不可大於今日")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy/MM/dd", timezone = "GMT+8")
 	@NotNull(message = "上架日期不可空值")
 	private Date date; // 上架日期
 
@@ -52,6 +54,7 @@ public class Product {
 
 	public void setGroup(Group group) {
 		this.group = group;
+		System.out.println("set group : " + group);
 	}
 
 	public String getSize() {
@@ -60,6 +63,7 @@ public class Product {
 
 	public void setSize(String size) {
 		this.size = size;
+		System.out.println("set size: " + size);
 	}
 
 	public Integer[] getLevelIds() {
@@ -68,6 +72,7 @@ public class Product {
 
 	public void setLevelIds(Integer[] levelIds) {
 		this.levelIds = levelIds;
+		System.out.println("set levelIds: " + levelIds);
 	}
 
 	public String getName() {
@@ -76,6 +81,7 @@ public class Product {
 
 	public void setName(String name) {
 		this.name = name;
+		System.out.println("set name: " + name);
 	}
 
 	public Double getPrice() {
@@ -84,6 +90,7 @@ public class Product {
 
 	public void setPrice(Double price) {
 		this.price = price;
+		System.out.println("set price: " + price);
 	}
 
 	public Integer getAmount() {
@@ -92,6 +99,7 @@ public class Product {
 
 	public void setAmount(Integer amount) {
 		this.amount = amount;
+		System.out.println("set amount: " + amount);
 	}
 
 	public Date getDate() {
@@ -100,14 +108,15 @@ public class Product {
 
 	public void setDate(Date date) {
 		this.date = date;
+		System.out.println("set date: " + date);
 	}
+
 
 	@Override
 	public String toString() {
 		return "Product [group=" + group + ", size=" + size + ", levelIds=" + Arrays.toString(levelIds) + ", name="
 				+ name + ", price=" + price + ", amount=" + amount + ", date=" + date + "]";
 	}
-
 	
 }
 

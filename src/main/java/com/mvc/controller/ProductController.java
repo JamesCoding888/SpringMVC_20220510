@@ -1,6 +1,8 @@
 package com.mvc.controller;
-import javax.validation.Valid;   
-import org.springframework.beans.factory.annotation.Autowired;  
+import java.util.List;
+import javax.validation.Valid;    
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import com.mvc.entity.products.Product;
 import com.mvc.service.ProductService;
@@ -78,4 +81,17 @@ public class ProductController {
 		productService.delete(name);
 		return "redirect:/mvc/product/";
 	}
+	
+	// 將資料轉為 json 格式對外發佈
+	@GetMapping(value = "/query_json", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Product> queryJson() {
+	return productService.query();
+	}
+//	public String queryJson() {
+//		String get_queryJson = productService.query().toString();
+//		System.out.println(get_queryJson.substring(1, get_queryJson.length()-1));
+//		return get_queryJson.substring(0, get_queryJson.length());
+//	}
+
 } 
