@@ -42,5 +42,16 @@
 - itemLabel
 
 
+20220927
+- javax.validation.constraints 
+- readonly="${ action == 'update'?'true':'false'}"  
+- delimiter="|" 
+- serialVersionUID 
+- SimpleMappingExceptionResolver 
+- pattern="yyyy-MM-dd" 
+- MediaType.APPLICATION_JSON_VALUE 
+- HTTP STATUS 406 
+- jackson-dataformat-xml
+  
 
 
