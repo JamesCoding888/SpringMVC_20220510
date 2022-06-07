@@ -1,5 +1,5 @@
 package com.mvc.entity.products;
-import java.util.Arrays;   
+import java.util.Arrays;    
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;

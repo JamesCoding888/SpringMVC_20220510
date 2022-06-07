@@ -1,5 +1,5 @@
 package com.mvc.controller;
-import java.util.List;
+import java.util.List; 
 import javax.validation.Valid;    
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -88,10 +88,6 @@ public class ProductController {
 	public List<Product> queryJson() {
 	return productService.query();
 	}
-//	public String queryJson() {
-//		String get_queryJson = productService.query().toString();
-//		System.out.println(get_queryJson.substring(1, get_queryJson.length()-1));
-//		return get_queryJson.substring(0, get_queryJson.length());
-//	}
+
 
 } 
